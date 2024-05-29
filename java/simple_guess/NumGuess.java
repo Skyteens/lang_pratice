@@ -4,10 +4,10 @@ import java.util.Scanner;
 public class NumGuess {
 
     static boolean compareVals(int guess, int answer) {  
-        System.out.println("You entered: " + guess);  
+        System.out.println("You guessed: " + guess);  
   
         if (guess == answer) {  
-            System.out.println("Well done, you guessed correctly!");  
+            System.out.println("Congrats, Your answer is Correct!");  
             return true;  
         } else {  
             if (guess > answer) {  
@@ -35,7 +35,7 @@ public class NumGuess {
                 return;  
             }  
   
-            System.out.print("Please enter your guess. (below 10): ");  
+            System.out.print("Please enter your guess.(below 10): ");  
             String guess = scanner.next();  
   
             try {  
@@ -48,11 +48,11 @@ public class NumGuess {
                         return;  
                     }  
                 } else {  
-                    System.out.println("Please enter value below 10");  
+                    System.out.println("Please enter a number below 10!");  
                     counter--;  
                 }  
             } catch (NumberFormatException e) {  
-                System.err.println("Please enter a valid integer!");  
+                System.err.println("Please type a valid integer!");  
                 counter--;  
             }  
         }  

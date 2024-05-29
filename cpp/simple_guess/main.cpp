@@ -8,18 +8,18 @@ using namespace std;
 static int compare_vals(int* guess, int* answer){
 
 
-    cout << "You entered: " << *guess << endl;
+    cout << "You guessed: " << *guess << endl;
     // << " the correct is: " << *answer 
 
     if (*guess == *answer) {
-        cout << "Well done, you guessed correctly!" << endl;
+        cout << "Congrats, Your answer is Correct!" << endl;
         return true;
     } else {
 
         if (*guess > *answer){
-            cout << "Guess is too big!" << endl;
+            cout << "Guess too big!" << endl;
         } else {
-            cout << "Guess is too small!" << endl;
+            cout << "Guess too small!" << endl;
         }
 
         return false;
@@ -39,12 +39,12 @@ int main(){
     while (true) {  
          
         if (max_tries == 0) {  
-            std::cout << "Sorry, you have reached the maximum tries of 3 times." << std::endl;  
+            std::cout << "Sorry you have reach max tries of 3 times." << std::endl;  
             return 0;  
         } 
         
 
-        cout << "Please enter your guess. (below 10): ";  
+        cout << "Please enter your guess.(below 10): ";  
   
         string guess;    
         cin >> guess;
@@ -58,14 +58,14 @@ int main(){
                 } 
 
             } else {
-                    cout << "Please enter value below 10" << endl;
+                    cout << "Please enter a number below 10!" << endl;
                     max_tries--; 
             }
 
             
 
         } catch(const invalid_argument& ia) {
-            cerr << "Please enter a valid integer! " << endl;
+            cerr << "Please type a valid integer!" << endl;
             max_tries--; 
         }
     };

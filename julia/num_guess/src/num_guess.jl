@@ -8,11 +8,11 @@ function guessNum()
     while true
 
         if max_tries == 0 
-            println("Sorry, you have reached max tries of 3 times.")
+            println("Sorry you have reach max tries of 3 times.")
             return
         end
 
-        print("Please enter a number (below 10): ")    
+        print("Please enter your guess.(below 10): ")    
         guess = readline() 
         guessInt = tryparse(Int, guess) 
 
@@ -44,14 +44,14 @@ function _compare_vals(guess,answer)
     # println("You guessed: $(guess)!, correct is: $correct.")  
     
     if answer == guess 
-        println("Congrats, you guessed corectly")
+        println("Congrats, Your answer is Correct!")
         return true
     else
         # println("Sorry, you are wrong!") 
         if guess > answer 
             println("Guess too big!")
         else
-            println("Guess too small")
+            println("Guess too small!")
         end
         return false
     end

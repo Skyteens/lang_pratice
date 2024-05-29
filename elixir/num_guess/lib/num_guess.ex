@@ -13,13 +13,13 @@ defmodule NumGuess do
   defp get_input(tries,answer) do
 
     if tries == 0 do
-      IO.puts("Sorry, you have reached the max tries of 3 times.")
+      IO.puts("Sorry you have reach max tries of 3 times.")
       :ok
     else
-      guess = IO.gets("Please input a number. (below 10) : ");
+      guess = IO.gets("Please enter your guess.(below 10): ");
 
       if Integer.parse(String.trim(guess)) == :error do
-        IO.puts("The input is not a valid integer")
+        IO.puts("Please type a valid integer!")
         get_input(tries - 1,answer)
 
       else
@@ -30,7 +30,7 @@ defmodule NumGuess do
             get_input(tries,answer)
           end
         else
-          IO.puts("Please enter a number below 10")
+          IO.puts("Please enter a number below 10!")
           get_input(tries - 1,answer)
         end
 
@@ -48,7 +48,7 @@ defmodule NumGuess do
 
     case {guessInt, answer} do
       {guess, guess} ->
-        IO.puts("Your answer is correct")
+        IO.puts("Congrats, Your answer is Correct!")
         true
       {guess, answer} when guess > answer ->
         IO.puts("Guess too big!")
