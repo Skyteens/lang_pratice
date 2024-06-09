@@ -4,3 +4,8 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+sqlx = "0.5"  
+sqlx-core = "0.5"  
+sqlx-rt = "0.5"  
+sqlx-mysql = "0.5"
+polars = "0.9.2" 

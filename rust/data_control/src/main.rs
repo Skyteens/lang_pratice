@@ -1,5 +1,7 @@
 
 use polars::prelude::*;  
+use sqlx::mysql::MySqlPoolOptions; 
+use sqlx::query;  
 
 fn read_csv(file){
     // Read a CSV file into a DataFrame
@@ -22,6 +24,35 @@ fn get_data(){
     println!(query);
 }
 
+
+#[tokio::main]  
+async fn connectDB() -> Result<(), sqlx::Error> {  
+    // Create a connection pool  
+    let pool = MySqlPoolOptions::new()  
+        .max_connections(5)  
+        .connect("mysql://username:password@localhost/database")  
+        .await?;  
+  
+    Ok(pool)  
+}  
+
+#[tokio::main]  
+async fn queryDB() -> Result<(), sqlx::Error> {  
+    let pool = connectDB().unwrap()
+  
+    // Execute a simple query  
+    let rows = query!("SELECT id, name FROM users")  
+        .fetch_all(&pool)  
+        .await?;  
+  
+    for row in rows {  
+        let id: i32 = row.id;  
+        let name: String = row.name;  
+        println!("ID: {}, Name: {}", id, name);  
+    }  
+  
+    Ok(())  
+}  
 
 pub fn main() {  
   
